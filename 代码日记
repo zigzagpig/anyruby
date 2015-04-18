@@ -1,0 +1,34 @@
+4月9日
+1	inspect：方法使对象以字面量方式返回。
+	
+2	formate: { with: VALID_EMAIL_REGEX }
+	 	formate: 格式这个词没有e的啊
+	 		正确的应该是：format
+
+3	duplicate_user.email = @user.email.upcase
+		应该给对象的属性作处理，而不是更新这个对象（概念待更新)
+
+4	SQLite3::SQLException: no such table: main.user（没有这张表啊亲！！！！！！！！）
+	add_index :user, :email, unique: true
+  	add_index :users, :email, unique: true
+  		要学会看出错代码啊，虽然还不懂单复数的代表
+  		而且出错了别纠结在一地，看看有没有其他的可能
+
+5  	validates :password, length: { maximum: 6 }
+  	validates :password, length: { minimum: 6 }
+  		哥啊，看清楚是最大还是最小长度，莫想当然阿。
+
+6  	user.password_digest
+		在rails命令行中多输空格什么的都会有错，真是奇葩，出错可以多验证几次
+
+7	上传到heroku时出错：
+		fatal: unable to access 'https://git.heroku.com/zigzagpig-sample-app.git/': Could not resolve host: git.heroku.com
+			用heroku open打开网站后，heroku偷偷更新了下版本，然后再push就能够推送成功了
+				真是奇葩，不能提示更新吗？总之，bug无处不在，多角度排除。
+
+4月15日
+1	285页左右不太懂 attr 什么的a 
+
+2	为什么remember user要user参数呢？亚帕里在后面可以知道
+
+3	有没有用到的函数，那是肯定错的嘛，cookies没有删啊，所以错了啊
