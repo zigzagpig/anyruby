@@ -29,7 +29,7 @@ class UsersController < ApplicationController
       sendcloud_mail_api(mail_to: @user.email, topic: "欢迎激活 anyruby 帐号",
         html_content: sendcloud_test(@user.name,
           edit_account_activation_url(@user.activation_token, email: @user.email)))
-      flash[:info] = "请检查你的邮箱以激活帐号.#{edit_account_activation_url(@user.activation_token, @user.email)}"
+      flash[:info] = "请检查你的邮箱以激活帐号."
   	  redirect_to root_url
   	else
   	  render 'new'
@@ -96,11 +96,11 @@ class UsersController < ApplicationController
     "
 
       <h1>Anyruby</h1>
-      <p>你好啊 #{user},</p>
+      <p>你好啊 #{user_to_be_send},</p>
         <p>
           欢迎注册 anyruby 帐号! 请点击下面的链接以激活帐户:
       </p>
-      <a href=\"#{user_to_be_send}\" title=\"#{url_to_link}\">点我激活</a>
+      <a href=\"#{url_to_link}\" title=\"#{url_to_link}\">点我激活</a>
 
     "
   end
@@ -109,8 +109,8 @@ class UsersController < ApplicationController
     "
 
       <h1>重置密码</h1>
-      <p>#{user}, 点击下面的链接重置密码吧:</p>
-      <a href=\"#{user_to_be_send}\" title=\"#{url_to_link}\">点我改密码</a>
+      <p>#{user_to_be_send}, 点击下面的链接重置密码吧:</p>
+      <a href=\"#{url_to_link}\" title=\"#{url_to_link}\">点我改密码</a>
       <p>这个链接仅在两小时内有效.</p>
       <p>
          如果你没有请求重置密码，请忽视本邮件，你的密码将保持不变。
@@ -122,8 +122,8 @@ class UsersController < ApplicationController
   def sendcloud_test(user_to_be_send, url_to_link)
     "
 
-    <a href=\"#{user_to_be_send}\" title=\"#{url_to_link}\">激活</a>
-    你已成功的从SendCloud发送了一封测试邮件，接下来快登录前台去完善账户信息吧！
+      <a href=\"#{url_to_link}\" title=\"#{url_to_link}\">激活</a>
+      你已成功的从SendCloud发送了一封测试邮件，接下来快登录前台去完善账户信息吧！
 
 
     "
