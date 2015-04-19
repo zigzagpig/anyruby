@@ -1,3 +1,7 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'rest_client'
+
 module UsersHelper
   def gravatar_for(user, options = { size: 160 })
   	gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
