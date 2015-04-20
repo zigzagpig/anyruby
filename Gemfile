@@ -13,9 +13,12 @@ gem 'jbuilder',					'2.2.3'
 gem 'sdoc',             		'0.4.0', group: :doc
 gem 'unicorn',					'4.8.3'
 gem 'faker',					'1.4.2'
+gem 'carrierwave',				'0.10.0'		#处理图片上传
+gem 'mini_magick',				'3.8.0'			#用于调整图片大小
+gem 'fog',						'1.23.0'		#用于在生产环境上传图片
 gem 'will_paginate',			'3.0.7'
 gem 'bootstrap-will_paginate',  '0.0.10'
-gem 'rest-client'
+gem 'rest-client'								# sendcloudAPI 发邮件需要
 #   'ruby',			'2.2.0'
 
 group :development, :test do
