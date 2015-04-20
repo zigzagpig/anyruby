@@ -15,7 +15,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
   test "valid signup information" do
     get signup_path
 	  name = "Example User"
-	  email = "user@example.com"
+	  email = "anyruby@163.com"
 	  password = "password"
 	  assert_difference 'User.count', 1 do
 	  post_via_redirect users_path, user: { name:  name,

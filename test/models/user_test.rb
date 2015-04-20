@@ -4,7 +4,7 @@ class UserTest < ActiveSupport::TestCase
 
   def setup
 	  @user = User.new( name: "Example User",
-                      email: "user@example.com",
+                      email: "anyruby@qq.com",
                       password: "foobar",
                       password_confirmation: "foobar" )
   end
@@ -61,6 +61,14 @@ class UserTest < ActiveSupport::TestCase
   test "password should have a minimum length" do
     @user.password = @user.password_confirmation = "a" * 5
     assert_not @user.valid?
+  end
+
+  test "删除用户同时他的所有微博也删了" do
+    @user.save
+    @user.microposts.create!(content: "Lorem ipsum")
+    assert_difference 'Micropost.count', -1 do
+      @user.destroy
+    end
   end
 
 end
