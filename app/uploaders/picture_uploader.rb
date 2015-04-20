@@ -4,7 +4,7 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   #引用 MiniMagick 并且把展示图片的最大大小调整为 600 x 600
   include CarrierWave::MiniMagick
-  process resize_to_limit: [400, 400]
+  process resize_to_limit: [650, 650]
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
