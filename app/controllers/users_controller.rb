@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     #参数2 ＝ 用户的邮箱
     if @user.save
       sendcloud_mail_api(mail_to: @user.email, topic: "欢迎激活 anyruby 帐号",
-        html_content: sendcloud_test(@user.name,
+        html_content: account_activation_html(@user.name,
           edit_account_activation_url(@user.activation_token, email: @user.email)))
       flash[:info] = "请检查你的邮箱以激活帐号."
   	  redirect_to root_url

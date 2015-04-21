@@ -16,7 +16,7 @@ class PasswordResetsController < ApplicationController
     if @user
       @user.create_reset_digest
       sendcloud_mail_api(mail_to: @user.email, topic: "重置你的 anyruby 帐号",
-        html_content: sendcloud_test(@user.name,
+        html_content: password_reset_html(@user.name,
           edit_password_reset_url(@user.reset_token, email: @user.email)))
       flash[:info] = "已发送重置密码链接到你的邮箱了哎"
       redirect_to root_url
