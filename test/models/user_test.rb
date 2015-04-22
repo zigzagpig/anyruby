@@ -71,4 +71,35 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
+  test "应能够关注和取消关注" do
+    zigzagpig = users(:zigzagpig)
+    xiaokai  = users(:xiaokai)
+    assert_not zigzagpig.following?(xiaokai)
+    assert_not xiaokai.followers.include?(zigzagpig)
+    zigzagpig.follow(xiaokai)
+    assert xiaokai.followers.include?(zigzagpig)
+    assert zigzagpig.following?(xiaokai)
+    zigzagpig.unfollow(xiaokai)
+    assert_not zigzagpig.following?(xiaokai)
+    assert_not xiaokai.followers.include?(zigzagpig)
+  end
+
+  test "动态流应当正确显示" do
+    zigzagpig = users(:zigzagpig)
+    archer = users(:archer)
+    lana = users(:lana)
+    #应包含关注的人的微博
+    lana.microposts.each do |post_following|
+      assert zigzagpig.feed.include?(post_following)
+    end
+    #应包含自己的的微博
+    zigzagpig.microposts.each do |post_self|
+      assert zigzagpig.feed.include?(post_self)
+    end
+    #不包含没关注的人的微博
+    archer.microposts.each do |post_unfollowed|
+      assert_not zigzagpig.feed.include?(post_unfollowed)
+    end
+end
+
 end

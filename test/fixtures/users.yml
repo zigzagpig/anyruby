@@ -13,6 +13,13 @@ xiaokai:
   activated: true
   activated_at: <%= Time.zone.now %>
 
+archer:
+  name: 我啊
+  email: 910847246@qq.com
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
 lana:
   name: Lana Kane
   email: hands@example.gov

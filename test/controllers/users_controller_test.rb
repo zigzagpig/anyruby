@@ -52,5 +52,15 @@ class UsersControllerTest < ActionController::TestCase
       delete :destroy, id: @user
     end
     assert_redirected_to root_url
-end
+  end
+
+  test "收听必须先登录" do
+    get :following, id: @user
+    assert_redirected_to login_url
+  end
+
+  test "查看某人的听众必须先登录" do
+    get :followers, id: @user
+    assert_redirected_to login_url
+  end
 end
