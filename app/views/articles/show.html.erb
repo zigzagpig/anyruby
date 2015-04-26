@@ -1,0 +1,10 @@
+<div class = "row">
+  <div class = "col-md-6 col-md-offset-3">
+  
+  <h1><%= @article.title %></h1>
+  <%= markdown @article.text %>
+  <%= link_to "修改", edit_article_path(@article) %>
+  <%= link_to '删除', article_path(@article), method: :delete,
+      data: { confirm: '真的要删吗?' } %>  
+  </div>
+</div>

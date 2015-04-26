@@ -19,7 +19,9 @@ gem 'fog',						'1.23.0'
 gem 'will_paginate',			'3.0.7'			
 gem 'bootstrap-will_paginate',  '0.0.10'
 gem 'rest-client'								
-#   'ruby',			'2.2.0'
+gem 'redcarpet'
+gem 'coderay'
+gem 'rouge'
 
 group :development, :test do
   gem 'sqlite3',			'1.3.9'

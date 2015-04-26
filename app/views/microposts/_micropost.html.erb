@@ -9,7 +9,7 @@
     发表于 <%= time_ago_in_words(micropost.created_at) %> 前啦
     <% if ( current_user?(micropost.user) || ( logged_in? && current_user.admin )) %>
       <%= link_to "删除", micropost, method: :delete,
-                                       data: { confirm: "删微博干嘛 想通了没有" } %>
-	<% end %>
+          data: { confirm: "删微博干嘛 想通了没有" } %>
+	  <% end %>
   </span>
 </li>
