@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 	def logged_in_user
 	  unless logged_in?
 		store_location
-		flash[:danger] = "真实的 要先登录啊"
+		flash[:danger] = "真是的 要先登录啊"
 		redirect_to login_url
 	  end
 	end
