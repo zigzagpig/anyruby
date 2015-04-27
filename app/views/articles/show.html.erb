@@ -1,10 +1,38 @@
-<div class = "row">
-  <div class = "col-md-6 col-md-offset-3">
-  
-  <h1><%= @article.title %></h1>
-  <%= markdown @article.text %>
-  <%= link_to "修改", edit_article_path(@article) %>
-  <%= link_to '删除', article_path(@article), method: :delete,
-      data: { confirm: '真的要删吗?' } %>  
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <ol class="microposts">
+	  	<li id="micropost-<%= @article.id %>">
+	  	  <%= link_to gravatar_for(current_user, size: 50), current_user %>
+	  	  <span class="timestamp">
+	  	    <h4><%= "#{current_user.name}" %></h4>
+            发表于 <%= time_ago_in_words(@article.created_at) %> 前啦
+	  	    <%= link_to "修改", edit_article_path(@article) %>
+  	        <%= link_to '删除', article_path(@article), method: :delete,
+      	  		data: { confirm: '真的要删吗?' } %></span>
+	  	</li>
+
+	    <li id="micropost-<%= @article.id %>">
+	      作者简介（待补充）
+	    </li>
+
+	    <li id="micropost-<%= @article.id %>">
+	      文章简介（待补充）
+	    </li>
+	  </ol>
+    </section>
+  </aside>
+
+  <div class="col-md-8">
+    <h3>
+      <center>
+        <%= link_to "#{@article.title}", article_path(@article) %>
+      </center>
+    </h3>
+    
+    <br>
+    <br>
+    <%= markdown @article.text %>
   </div>
 </div>
+

@@ -4,32 +4,30 @@
     <section class="user_info">
       <%= gravatar_for current_user %>
       <h1><%= current_user.name %></h1>
-    </section>
-
-    <section class="micropost_form">
-      
+      <h5><%= link_to "创建新文章", new_article_path %></h5>
     </section>
   </aside>
 
   <div class="col-md-8">	
-	<% if Article.any? %>
-	  <h3>文章(<%= Article.count %>)</h3>
-	  
-	  <% Article.all.each do |article| %>
-	    <ol class="microposts">
-	  	  <li id="micropost-<%= article.id %>">
-	  	    <%= link_to gravatar_for(current_user, size: 50), current_user %>
-	  	    <span class="content">
-	  	      <%= link_to "#{article.title}", article_path(article) %>
-	  	    </span>
-	  	    <span class="timestamp">
-	  	      发表于 <%= time_ago_in_words(article.created_at) %> 前啦
-	  	    </span>
-	  	  </li>
-	    </ol>
-	  <% end %>
-
-	<% end %>	
+	  <% if Article.any? %>
+	    <h3>文章(<%= Article.count %>)</h3>
+	    
+      <% Article.all.each do |article| %>
+	      <ol class="microposts">
+	    	  <li id="micropost-<%= article.id %>">
+	    	    <%= link_to gravatar_for(current_user, size: 50), current_user %>
+	    	    <span class="content">
+	    	      <h4><%= link_to "#{article.title}", article_path(article) %></h4>
+	    	    </span>
+	    	    <span class="timestamp">
+	    	       <%= "#{current_user.name}" %>
+               发表于 <%= time_ago_in_words(article.created_at) %> 前啦
+	    	    </span>
+	    	  </li>
+	      </ol>
+	    <% end %>
+      
+	  <% end %>	
   </div>
 
 </div>
