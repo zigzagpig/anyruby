@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'demo/search'
+
+  get 'demo/new_website'
+
+  get 'demo/show_website'
+
+  get 'demo/new_ask'
+
+  get 'demo/show_ask'
+
   resources :articles
   root 							      'static_pages#home'
   get  		'help'			=>  'static_pages#help'
