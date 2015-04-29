@@ -22,7 +22,7 @@
           <span class="timestamp">
             <h4><%= "#{@article.user.name}" %></h4>
               发表于 <%= time_ago_in_words(@article.created_at) %> 前啦
-            <% if logged_in? == true && current_user != @article.user %>
+            <% if logged_in? == true && current_user == @article.user %>
               <%= link_to "修改", edit_user_article_path(id: @article.id) %>
               <%= link_to '删除', user_article_path(id: @article.id), method: :delete,
                 data: { confirm: '真的要删吗?' } %></span>
@@ -30,11 +30,7 @@
         </li>
   
         <li id="micropost-<%= @article.id %>">
-          作者简介（待补充）
-        </li>
-  
-        <li id="micropost-<%= @article.id %>">
-          文章简介（待补充）
+          个人说明（待补充）
         </li>
       </ol>
     </section>

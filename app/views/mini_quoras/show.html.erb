@@ -1,4 +1,44 @@
-<p>
-  <strong>question:</strong>
-  <%= markdown @mini_quora.question %>
-</p>
+<div class="row">
+
+  <div class="col-md-8 col-md-offset-1">
+    
+    <h3><%= @mini_quora.question %></h3>
+
+    <br>
+    <br>
+    <%= markdown "`问题描述`" %>
+    <ol class="microposts">
+    	<li><%= markdown "`提问者的需求`" %></li>
+    	<li><%= markdown "`更新 1`" %></li>
+    	<li><%= markdown "`更新 2`" %></li>    	
+    	<li><%= markdown "`大家是怎么解决这个问题的`" %></li>
+    </ol>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <section class="user_info">
+      <ol class="microposts">
+        <li id="micropost-<%= @mini_quora.id %>">
+          <%= link_to gravatar_for(@mini_quora.user, size: 50), @mini_quora.user %>
+          <span class="timestamp">
+            <h4><%= "#{@mini_quora.user.name}" %></h4>
+            发表于 <%= time_ago_in_words(@mini_quora.created_at) %> 前啦
+            <% if logged_in? == true && current_user == @mini_quora.user %>
+              <%= link_to "修改", edit_mini_quora_path(id: @mini_quora.id) %>
+              <%= link_to '删除', mini_quora_path(id: @mini_quora.id), method: :delete,
+                  data: { confirm: '真的要删吗?' } %>
+            <% end %>
+          </span>      
+        </li>
+  
+        <li id="micropost-<%= @mini_quora.id %>">
+          个人说明（待补充）
+        </li>
+      </ol>
+    </section>
+
+  </div>
+
+</div>
