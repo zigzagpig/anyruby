@@ -2,14 +2,14 @@
 
   <div class="col-md-8 col-md-offset-1">
     <h3>
-
-        <%= link_to "#{@article.title}", article_path(@article) %>
-
+      <center>
+        <%= link_to "#{@article.title}", user_article_path(id: @article.id) %>
+      </center>
     </h3>
-    
+
     <br>
     <br>
-    <%= markdown @article.text %>
+      <%= markdown @article.text %>
     <br>
     <br>
     <br>
@@ -22,8 +22,8 @@
           <span class="timestamp">
             <h4><%= "#{current_user.name}" %></h4>
               发表于 <%= time_ago_in_words(@article.created_at) %> 前啦
-            <%= link_to "修改", edit_article_path(@article) %>
-              <%= link_to '删除', article_path(@article), method: :delete,
+            <%= link_to "修改", edit_user_article_path(id: @article.id) %>
+              <%= link_to '删除', user_article_path(id: @article.id), method: :delete,
                 data: { confirm: '真的要删吗?' } %></span>
         </li>
   
@@ -40,4 +40,3 @@
   </div>
 
 </div>
-

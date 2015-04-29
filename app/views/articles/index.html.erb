@@ -4,20 +4,20 @@
     <section class="user_info">
       <%= gravatar_for current_user %>
       <h1><%= current_user.name %></h1>
-      <h5><%= link_to "创建新文章", new_article_path %></h5>
+      <h5><%= link_to "创建新文章", new_user_article_path %></h5>
     </section>
   </aside>
 
   <div class="col-md-8">	
-	  <% if Article.any? %>
-	    <h3>文章(<%= Article.count %>)</h3>
+	  <% if @articles.any? %>
+	    <h3>文章(<%= @articles.count %>)</h3>
 	    
-      <% Article.all.each do |article| %>
+      <% @articles.each do |article| %>
 	      <ol class="microposts">
 	    	  <li id="micropost-<%= article.id %>">
 	    	    <%= link_to gravatar_for(current_user, size: 50), current_user %>
 	    	    <span class="content">
-	    	      <h4><%= link_to "#{article.title}", article_path(article) %></h4>
+	    	      <h4><%= link_to "#{article.title}", user_article_path(id: article.id) %></h4>
 	    	    </span>
 	    	    <span class="timestamp">
 	    	       <%= "#{current_user.name}" %>
@@ -31,26 +31,3 @@
   </div>
 
 </div>
-
-
-<!--   <div class="col-md-8">
-    <h3>文章列表</h3>
-  
-    <div class="list-group">
-
-      <% @articles.each do |article| %>
-        <li class="list-group-item">
-          <%= link_to "#{article.title}", article_path(article) %>
-        </li>
-      <% end %><br><br>
-    
-      <button type="button" class="btn btn-default btn-lg">
-        <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
-      </button>
-      <%= link_to '创建新文章', new_article_path %>
-  
-    </div>
-
-  </div> -->
-
-
