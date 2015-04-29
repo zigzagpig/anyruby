@@ -1,0 +1,22 @@
+<%= form_for :mini_quora, url: mini_quoras_path do |f| %>
+  
+  <% if @mini_quora.errors.any? %>
+    <div id="error_explanation">
+      <h3>保存不成功！这个表单存在 <%= @mini_quora.errors.count %>个 错误！</h3>
+      <ul>
+      <% @mini_quora.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :问题 %><br>
+    <%= f.text_area :question %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
