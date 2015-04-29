@@ -18,13 +18,15 @@
     <section class="user_info">
       <ol class="microposts">
         <li id="micropost-<%= @article.id %>">
-          <%= link_to gravatar_for(current_user, size: 50), current_user %>
+          <%= link_to gravatar_for(@article.user, size: 50), @article.user %>
           <span class="timestamp">
-            <h4><%= "#{current_user.name}" %></h4>
+            <h4><%= "#{@article.user.name}" %></h4>
               发表于 <%= time_ago_in_words(@article.created_at) %> 前啦
-            <%= link_to "修改", edit_user_article_path(id: @article.id) %>
+            <% if logged_in? == true && current_user != @article.user %>
+              <%= link_to "修改", edit_user_article_path(id: @article.id) %>
               <%= link_to '删除', user_article_path(id: @article.id), method: :delete,
                 data: { confirm: '真的要删吗?' } %></span>
+            <% end %>         
         </li>
   
         <li id="micropost-<%= @article.id %>">

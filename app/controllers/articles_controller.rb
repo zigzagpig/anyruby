@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :logged_in_user
+  before_action :logged_in_user,  only: [:new, :create, :edit, :update, :destroy]
 
   def new
     @user = User.find(params[:user_id])
@@ -43,9 +43,9 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article = Article.find(params[:id])
+
     @article.destroy
-   
-    redirect_to user_articles_path(current_user)
+    redirect_to user_articles_path(current_user) 
   end
 
   private

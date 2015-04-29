@@ -1,26 +1,28 @@
 <div class="row">
-
-  <aside class="col-md-4">
-    <section class="user_info">
-      <%= gravatar_for current_user %>
-      <h1><%= current_user.name %></h1>
-      <h5><%= link_to "创建问题", new_mini_quora_path %></h5>
-    </section>
-  </aside>
+  <% if logged_in? %>
+	<aside class="col-md-4">
+	  <section class="user_info">
+	  <% debugger %>
+	    <%= gravatar_for current_user %>
+	    <h1><%= current_user.name %></h1>
+	    <h5><%= link_to "创建问题", new_mini_quora_path %></h5>
+	  </section>
+	</aside>
+  <% end %>
 
   <div class="col-md-8">	
 	  <% if @mini_quoras.any? %>
 	    <h3>问题(<%= @mini_quoras.count %>)</h3>
-	    
-      <% @mini_quoras.each do |mini_quora| %>
+        <% @mini_quoras.each do |mini_quora| %>
 	      <ol class="microposts">
 	    	  <li id="micropost-<%= mini_quora.id %>">
-	    	    <%= link_to gravatar_for(current_user, size: 50), current_user %>
+	    	    <%= link_to gravatar_for(mini_quora.user, size: 50), mini_quora.user %>
 	    	    <span class="content">
-	    	      <h4><%= link_to "#{mini_quora.question}", mini_quora_path(id: mini_quora.id) %></h4>
+	    	      <h4><%= link_to "#{mini_quora.question}",
+	    	      		  mini_quora_path(id: mini_quora.id) %></h4>
 	    	    </span>
 	    	    <span class="timestamp">
-	    	       <%= "#{current_user.name}" %>
+	    	       <%= "#{mini_quora.user.name}" %>
                发表于 <%= time_ago_in_words(mini_quora.created_at) %> 前啦
 	    	    </span>
 	    	  </li>
