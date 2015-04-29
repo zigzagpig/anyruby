@@ -45,6 +45,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.destroy
    
+    flash[:success] = "删除文章成功了哦!"
     redirect_to user_articles_path(current_user)
   end
 

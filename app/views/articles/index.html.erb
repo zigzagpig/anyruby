@@ -9,25 +9,30 @@
   </aside>
 
   <div class="col-md-8">	
-	  <% if @articles.any? %>
-	    <h3>文章(<%= @articles.count %>)</h3>
-	    
+	<% if @articles.any? %>
+	  <h3>文章动态(<%= @articles.count %>)</h3>
+	  
       <% @articles.each do |article| %>
+        
+        <% if current_user.following?(article.user)  || article.user == current_user %>
 	      <ol class="microposts">
-	    	  <li id="micropost-<%= article.id %>">
-	    	    <%= link_to gravatar_for(current_user, size: 50), current_user %>
-	    	    <span class="content">
-	    	      <h4><%= link_to "#{article.title}", user_article_path(id: article.id) %></h4>
-	    	    </span>
-	    	    <span class="timestamp">
-	    	       <%= "#{current_user.name}" %>
-               发表于 <%= time_ago_in_words(article.created_at) %> 前啦
-	    	    </span>
-	    	  </li>
+	    	<li id="micropost-<%= article.id %>">
+	    	  <%= link_to gravatar_for(article.user, size: 50), article.user %>
+	    	  <span class="content">
+	    	    <h4><%= link_to "#{article.title}",
+	    	    		  user_article_path(id: article.id) %></h4>
+	    	  </span>
+	    	  <span class="timestamp">
+	    	     <%= "#{article.user.name}" %>
+             发表于 <%= time_ago_in_words(article.created_at) %> 前啦
+	    	  </span>
+	    	</li>
 	      </ol>
 	    <% end %>
-      
-	  <% end %>	
+
+	  <% end %>
+    
+	<% end %>	
   </div>
 
 </div>
