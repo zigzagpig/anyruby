@@ -25,6 +25,17 @@
 
   <div class="center jumbotron">
     <h1>欢迎来到 Anyruby</h1>
+    <h2>
+      这是      
+      <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>      
+      简单应用的首页
+    </h2>
+  
+    <%= link_to "现在开始吧!", signup_path, class: "btn btn-lg btn-primary" %>
+  </div>
+  
+  <%= link_to image_tag("rails.png", alt: "Rails logo"),
+              'http://rubyonrails.org/' %>
 <script type="text/javascript">
 //从页面收集OpenAPI必要的参数。get_user_info不需要输入参数，因此paras中没有参数
 var paras = {};
@@ -49,18 +60,6 @@ QC.api("get_user_info", paras)
     alert("获取用户信息完成！");
   });
 </script>        
-    <h2>
-      这是      
-      <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>      
-      简单应用的首页
-    </h2>
-  
-    <%= link_to "现在开始吧!", signup_path, class: "btn btn-lg btn-primary" %>
-  </div>
-  
-  <%= link_to image_tag("rails.png", alt: "Rails logo"),
-              'http://rubyonrails.org/' %>
-
 <% end %>
 
 <script type="text/javascript"
