@@ -11,6 +11,10 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <%= @current_user.name %> <b class="craret"></b>
             </a>
+            <span id="qqLoginBtn"></span>
+    <script type="text/javascript">
+      QC.Login({btnId:"qqLoginBtn"});
+    </script>
             <ul class="dropdown-menu">
               <li><%= link_to "我的微博", current_user %></li>
               <li><%= link_to "修改资料", edit_user_path(current_user) %></li>
