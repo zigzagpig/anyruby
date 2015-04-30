@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/046569/qq.git
+  revision: 5a28d2ac082ca6f4e03e23f86e4b5889c2c9e81b
+  specs:
+    qq (0.2.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -284,6 +290,7 @@ DEPENDENCIES
   mini_magick (= 3.8.0)
   minitest-reporters (= 1.0.5)
   pg (= 0.17.1)
+  qq!
   rails (= 4.2.0)
   rails_12factor (= 0.0.2)
   redcarpet

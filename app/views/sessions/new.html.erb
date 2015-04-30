@@ -18,6 +18,15 @@
 
     <%= f.submit "现在开始哟", class: "btn btn-primary" %>
   <% end %>
-  <p>新用户呀? <%= link_to "立刻注册吧!", signup_path %></p>
+  <p>新用户呀? <%= link_to "立刻注册吧!", signup_path %>
+    当然用
+    <span id="qqLoginBtn"></span>
+    <script type="text/javascript">
+      QC.Login({btnId:"qqLoginBtn"});
+    </script>
+    也是可以的啊。
+  </p>
   </div>
 </div>
+
+<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101209957" data-redirecturi="https://anyruby.com/" charset="utf-8"></script>

@@ -22,6 +22,7 @@ gem 'rest-client'
 gem 'redcarpet'
 gem 'coderay'
 gem 'rouge'
+gem 'qq', :git => 'git://github.com/046569/qq.git'
 
 group :development, :test do
   gem 'sqlite3',			'1.3.9'
