@@ -18,13 +18,8 @@
 
     <%= f.submit "现在开始哟", class: "btn btn-primary" %>
   <% end %><br>
-  <p>新用户呀? <%= link_to "立刻注册吧!", signup_path %>
-    当然用
-    <span id="qqLoginBtn"></span>
-    <script type="text/javascript">
-      QC.Login({btnId:"qqLoginBtn"});
-    </script>
-    也是可以的啊。
+  <p>新用户呀? <%= link_to "立刻邮件注册吧!", signup_path %>
+    <%= markdown "点右上角的`QQ图标`来注册也是可以的啊。" %>
   </p>
   </div>
 </div>
