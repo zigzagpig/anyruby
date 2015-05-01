@@ -22,12 +22,16 @@
   </div>
 
 <% else %>
-
-  <script type="text/javascript">
-  if(QC.Login.check()){//如果已登录
-    document.write("<% qq_log_in %>");
-  }
+  <script type="text/javascript"> 
+      if(QC.Login.check()){
+      QC.Login.getMe(function(openId, accessToken){
+        document.write("<% user = User.find(6) %>");
+        document.write("<% log_in user %>");
+        document.write("<% remember(user) %>");
+      });
+    }
   </script>
+
   <div class="center jumbotron">
     <h1>欢迎来到 Anyruby</h1>
     <h2>
@@ -46,4 +50,3 @@
 <script type="text/javascript"
   src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" charset="utf-8" data-callback="true">
 </script>
-

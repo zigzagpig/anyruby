@@ -45,11 +45,4 @@ module ApplicationHelper
 	Redcarpet::Markdown.new(renderer, extensions).render(text).html_safe
   end
 
-  def qq_log_in
-    post login_path, session: { email: "qq_test@qq.com",
-                                password: "123456",
-                                remember_me: '1' }
-    redirect_to root_path
-  end
-
 end
