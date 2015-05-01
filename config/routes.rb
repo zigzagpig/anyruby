@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get  		'contact'		=>	'static_pages#contact'
   get  		'signup'		=>	'users#new'
   get  		'login'			=>	'sessions#new'
+  get     'qq'        =>  'static_pages#qq'
   post 		'login'			=>	'sessions#create'
   delete 	'logout'		=>	'sessions#destroy'
 

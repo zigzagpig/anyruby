@@ -1,0 +1,11 @@
+<script type="text/javascript"> 
+    if(QC.Login.check()){
+    QC.Login.getMe(function(openId, accessToken){
+      document.write("<% user = User.find(6) %>");
+      document.write("<% log_in user %>");
+      document.write("<% remember(user) %>");
+    });
+  }
+</script>
+
+请点击 QQ 图标注册

