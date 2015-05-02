@@ -7,7 +7,7 @@
   body {
     background-color: #EFEFEF;
     color: #2E2F30;
-    text-align: center;
+    text-align: left;
     font-family: arial, sans-serif;
     margin: 0;
   }
@@ -32,9 +32,24 @@
   }
 
   h1 {
-    font-size: 100%;
-    color: #730E15;
+    font-size: 150%;
+    color: green;
     line-height: 1.5em;
+    margin-left: 100px;
+  }
+
+  h2 {
+    font-size: 300%;
+    color: purple;
+    line-height: 0.0em;
+    margin-left: 100px;
+  }
+
+  p {
+    font-size: 100%;
+    color: red;
+    line-height: 1.5em;
+    margin-left: 100px;
   }
 
   div.dialog > p {
@@ -54,13 +69,10 @@
   </style>
 </head>
 
-<body>
+<body style="background-image : url(/qq.png);background-repeat : no-repeat;background-size:1920px 1500px">
   <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
-  </div>
+  <h2>500 错误</h2>
+  <h1>The page you were looking for doesn't exist.</h1>
+  <h1>We're sorry, but something went wrong.</h1>
 </body>
 </html>
