@@ -22,22 +22,34 @@
   </div>
 
 <% else %>
-
-  <div class="center jumbotron">
-    <h1>欢迎来到 Anyruby</h1>
-    <h2>
-      这是      
-      <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>      
-      简单应用的首页
-    </h2>
-  
-    <%= link_to "现在开始吧!", signup_path, class: "btn btn-lg btn-primary" %>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <center>
+        <br><br><br><br>
+        <h1>欢迎来到 Anyruby</h1>
+        <h2>
+          这是      
+          <%= link_to "猪都快睡啦", about_path %>      
+          的个人网站
+        </h2>
+        
+        <%= link_to "现在注册吧!", signup_path, class: "btn btn-lg btn-primary" %>
+        或
+        <%= link_to "先体验为快!", qq_path, class: "btn btn-lg btn-primary" %>
+        
+        <br><br><br><br><br><br>
+        <h2>她是徐佳莹，听听她的音乐吧!</h2>
+        <audio controls>
+          <source src="徐佳莹 - 惧高症.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        <br><br><br><br><br><br>
+        <h5>
+          <%= link_to "关于", about_path %>
+          <%= link_to "帮助", help_path %>
+          <%= link_to "联系我", contact_path %>
+        </h5>
+       </center>
+    </div>
   </div>
-  
-  <%= link_to image_tag("rails.png", alt: "Rails logo"),
-              'http://rubyonrails.org/' %>        
 <% end %>
-
-<script type="text/javascript"
-  src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" charset="utf-8" data-callback="true">
-</script>
