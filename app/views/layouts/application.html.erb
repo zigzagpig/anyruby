@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta property="qc:admins" content="6513357717616125216375" />
-    <meta property="qc:admins" content="6513207776125216375" />
-    <meta property="qc:admins" content="65132077177616125216375" />
-    <meta property="qc:admins" content="651335710125216375" />
     <title><%= full_title(yield(:title)) %></title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -12,7 +8,7 @@
     <%= render 'layouts/shim' %>
   </head>
   
-  <body style="background-image : url(/lala.jpg);background-repeat : repeat-y;background-size:170% auto;">
+  <body style="background-image : url(/lala.jpg);background-repeat : no-repeat;background-size:180% auto;background-attachment: fixed">
 	  <%= render 'layouts/header' %>
       <div class="container">
         <% flash.each do |message_type, message| %>

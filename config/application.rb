@@ -24,5 +24,7 @@ module SampleApp
     config.active_record.raise_in_transactional_callbacks = true
     #在处理 ajax 的表单中添加真伪令牌
     config.action_view.embed_authenticity_token_in_remote_forms = true
+    config.time_zone = 'Beijing'
+    config.active_record.default_timezone = :local
   end
 end
