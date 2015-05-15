@@ -9,7 +9,7 @@
   </head>
   
   <body style="background-image : url(/lala.jpg);background-repeat : no-repeat;background-size:180% auto;background-attachment: fixed">
-	  <%= render 'layouts/header' %>
+	  <%= render 'layouts/header' %><br>
       <div class="container">
         <% flash.each do |message_type, message| %>
           <div class="alert alert-<%= message_type %>"><%= message %></div>
