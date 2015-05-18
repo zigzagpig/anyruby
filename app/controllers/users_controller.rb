@@ -24,10 +24,11 @@ class UsersController < ApplicationController
     #参数1 ＝ 用户的邮箱
     #参数2 ＝ 激活账号的默认主题
     #参数3 ＝ 要发送的html代码（函数返回值实现，下层函数有两个参数）
-    #参数1 ＝ 用户名
-    #参数2 ＝ 激活链接       （函数返回值实现，下层函数有两个参数）
-    #参数1 ＝ 激活的随机码
-    #参数2 ＝ 用户的邮箱
+    #参数3.1 ＝ 用户名
+    #参数3.2 ＝ 激活链接       （函数返回值实现，下层函数有两个参数）
+    #参数3.2.1 ＝ 激活的随机码
+    #参数3.2.2 ＝ 用户的邮箱
+    #嵌套太多，需要重构
     if @user.save
       sendcloud_mail_api(mail_to: @user.email, topic: "欢迎激活 anyruby 帐号",
         html_content: account_activation_html(@user.name,

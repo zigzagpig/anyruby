@@ -3,30 +3,42 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-
-  <%= form_for(:session, url: login_path) do |f| %>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-
-    <%= f.label :password %>
-    <%= link_to "(忘记密码了啊?)", new_password_reset_path %>
-    <%= f.password_field :password %>
-
-    <%= f.label :remember_me, class: "checkbox inline" do %>
-      <%= f.check_box :remember_me %>
-      <span>记住我哈</span>
+    <%= form_for(:session, url: login_path) do |f| %>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+  
+      <%= f.label :password %>
+      <%= link_to "(忘记密码了啊?)", new_password_reset_path %>
+      <%= f.password_field :password %>
+  
+      <%= f.label :remember_me, class: "checkbox inline" do %>
+        <%= f.check_box :remember_me %>
+        <span>记住我哈</span>
+      <% end %>
+  
+      <%= f.submit "现在开始哟", class: "btn btn-primary" %>
     <% end %>
+    <p>
+      <h4>
+        <center>
+          新用户?<%= link_to "立刻邮件注册吧!", signup_path %>
+          不想注册！！
 
-    <%= f.submit "现在开始哟", class: "btn btn-primary" %>
-  <% end %>
-  <p>
-    <h4>
-      <center>
-        新用户?<%= link_to "立刻邮件注册吧!", signup_path %>
-        不想注册！！
-        <%= link_to "我要直接登录!", qq_path %>
-      </center>
-    </h4>
-  </p>
+          <%= link_to "我要直接登录!", qq_path %>
+        </center>
+
+      </h4>
+    </p>
   </div>
 </div>
+
+<span id="qqLoginBtn"></span>
+<script type="text/javascript">
+    QC.Login({
+       btnId:"qqLoginBtn" //插入按钮的节点id
+});
+</script>
+
+<script type="text/javascript"
+src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101209957" data-redirecturi="https://anyruby.com/" charset="utf-8">
+</script>
