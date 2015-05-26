@@ -13,6 +13,7 @@ class StaticPagesController < ApplicationController
   def contact  	
   end
 
+  #登录游客帐号
   def qq
     user = User.find(6)
     log_in user

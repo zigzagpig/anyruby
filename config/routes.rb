@@ -1,13 +1,4 @@
 Rails.application.routes.draw do
-  get 'demo/search'
-
-  get 'demo/new_website'
-
-  get 'demo/show_website'
-
-  get 'demo/new_ask'
-
-  get 'demo/show_ask'
 
   
   root 							      'static_pages#home'
@@ -32,4 +23,11 @@ Rails.application.routes.draw do
   resources :microposts,          only: [:create, :destroy]
   resources :relationships,       only: [:create, :destroy]
   resources :mini_quoras
+
+  #test routes
+  get 'demo/search'
+  get 'demo/new_website'
+  get 'demo/show_website'
+  get 'demo/new_ask'
+  get 'demo/show_ask'
 end
